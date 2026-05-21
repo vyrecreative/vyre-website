@@ -1,0 +1,19 @@
+{
+  "name": "VYRE Creative",
+  "short_name": "VYRE",
+  "icons": [
+    {
+      "src": "vyre-logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "vyre-logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#070707",
+  "background_color": "#070707",
+  "display": "standalone"
+}
