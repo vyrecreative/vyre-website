@@ -14,8 +14,8 @@
 <link href="vyre-favicon-96.png" rel="icon" sizes="96x96" type="image/png"/>
 <link href="vyre-logo-180.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="site.webmanifest" rel="manifest"/>
-<link as="image" fetchpriority="high" href="assets/hero-desktop.webp" media="(min-width: 701px)" rel="preload"/>
-<link as="image" fetchpriority="high" href="assets/hero-mobile.webp" media="(max-width: 700px)" rel="preload"/>
+<link as="image" fetchpriority="high" href="assets/hero-desktop.webp?v=20260609b" media="(min-width: 701px)" rel="preload"/>
+<link as="image" fetchpriority="high" href="assets/hero-mobile.jpg?v=20260609b" media="(max-width: 700px)" rel="preload"/>
 <meta content="#070707" name="theme-color"/>
 <meta content="index, follow, max-image-preview:large" name="robots"/>
 <meta content="VYRE Creative" name="author"/>
@@ -846,10 +846,9 @@ footer{margin-top:0;background:#050505;border-top:1px solid rgba(243,237,225,.1)
 <div class="page active" id="home">
 <section class="hero">
 <picture class="hero-media">
-<source media="(max-width: 700px)" srcset="assets/hero-mobile.webp" type="image/webp"/>
-<source media="(max-width: 700px)" srcset="assets/hero-mobile.jpg" type="image/jpeg"/>
-<source srcset="assets/hero-desktop.webp" type="image/webp"/>
-<img alt="Raw cafe content visual showing iced coffee, condensation, receipt, crumbs, menu, and table texture for VYRE no-shoot business content." decoding="async" fetchpriority="high" src="assets/hero-desktop.jpg"/>
+<source media="(max-width: 700px)" srcset="assets/hero-mobile.jpg?v=20260609b" type="image/jpeg"/>
+<source srcset="assets/hero-desktop.webp?v=20260609b" type="image/webp"/>
+<img alt="Raw cafe content visual showing iced coffee, condensation, receipt, crumbs, menu, and table texture for VYRE no-shoot business content." decoding="async" fetchpriority="high" src="assets/hero-desktop.jpg?v=20260609b"/>
 </picture>
 <div class="hero-bg"></div>
 <div aria-hidden="true" class="hero-liquid"></div>
@@ -893,8 +892,8 @@ footer{margin-top:0;background:#050505;border-top:1px solid rgba(243,237,225,.1)
 <div class="shot-card shot-ref">
 <span data-i18n="direction.cardRef">01 / REF</span>
 <picture>
-<source srcset="assets/hero-desktop.webp" type="image/webp"/>
-<img alt="" loading="lazy" src="assets/hero-desktop.jpg"/>
+<source srcset="assets/hero-desktop.jpg?v=20260609b" type="image/jpeg"/>
+<img alt="" loading="lazy" src="assets/hero-desktop.jpg?v=20260609b"/>
 </picture>
 <strong data-i18n-html="direction.cardRefTitle">RAW<br/>CAFE<br/>REF</strong>
 </div>
@@ -909,13 +908,13 @@ footer{margin-top:0;background:#050505;border-top:1px solid rgba(243,237,225,.1)
 </div>
 <div class="shot-card shot-phone">
 <div class="phone-top"></div>
-<img alt="" loading="lazy" src="assets/direction-phone.jpg"/>
+<img alt="" loading="lazy" src="assets/direction-phone.jpg?v=20260609b"/>
 <div class="phone-caption" data-i18n="direction.phoneCaption">raw realism / no shoot day</div>
 </div>
 <div class="shot-card shot-output">
 <span data-i18n="direction.cardReady">03 / READY</span>
 <strong data-i18n-html="direction.outputStack">IG<br/>GOOGLE<br/>EMAIL<br/>REELS</strong>
-<img alt="" loading="lazy" src="assets/assets-stack.webp"/>
+<img alt="" loading="lazy" src="assets/assets-stack.jpg?v=20260609b"/>
 </div>
 </div>
 </div>
@@ -1286,7 +1285,7 @@ const VYRE_PRICE_LOCALES = {
   'ko-KR': { currency: 'KRW', locale: 'ko-KR' },
   'ja-JP': { currency: 'JPY', locale: 'ja-JP' }
 };
-const VYRE_FALLBACK_RATES = { GBP: 0.7447, EUR: 0.8605, CHF: 0.7871, SEK: 9.344, KRW: 1505.5, JPY: 158.98, MXN: 17.33 };
+const VYRE_FALLBACK_RATES = { GBP: 0.7483, EUR: 0.8657, CHF: 0.7964, SEK: 9.426, KRW: 1532.58, JPY: 160.16, MXN: 17.435 };
 let VYRE_RATES = { ...VYRE_FALLBACK_RATES };
 let VYRE_RATE_SOURCE = 'fallback';
 
@@ -1319,9 +1318,22 @@ function updateConvertedPrices() {
     }
     const rate = VYRE_RATES[info.currency] || VYRE_FALLBACK_RATES[info.currency];
     const localPrice = formatCurrency(usd * rate, info.currency, info.locale);
-    converted.textContent = `(${copy['pricing.approx'] || 'approx.'} ${localPrice})`;
+    converted.textContent = ` (${copy['pricing.approx'] || 'approx.'} ${localPrice})`;
     converted.dataset.source = VYRE_RATE_SOURCE;
   });
+}
+function normalizeFxRates(payload) {
+  if (Array.isArray(payload)) {
+    return payload.reduce((rates, item) => {
+      const quote = item && item.quote;
+      const rate = item && Number(item.rate);
+      if (typeof quote === 'string' && Number.isFinite(rate)) rates[quote] = rate;
+      return rates;
+    }, {});
+  }
+  if (payload && payload.rates && typeof payload.rates === 'object') return payload.rates;
+  if (payload && payload.data && typeof payload.data === 'object') return payload.data;
+  return {};
 }
 async function fetchLiveRates() {
   const cachedRaw = localStorage.getItem('vyreFxRates');
@@ -1337,11 +1349,12 @@ async function fetchLiveRates() {
     } catch (err) {}
   }
   try {
-    const endpoint = 'https://api.frankfurter.dev/v2/rates?base=USD&quotes=GBP,EUR,CHF,SEK,KRW,JPY';
+    const endpoint = 'https://api.frankfurter.dev/v2/rates?base=USD&quotes=GBP,EUR,CHF,SEK,KRW,JPY,MXN';
     const response = await fetch(endpoint, { cache: 'no-store' });
     if (!response.ok) throw new Error('FX request failed');
     const data = await response.json();
-    const rates = data.rates || data.data || {};
+    const rates = normalizeFxRates(data);
+    if (!Object.keys(rates).length) throw new Error('No FX rates returned');
     VYRE_RATES = { ...VYRE_FALLBACK_RATES, ...rates };
     VYRE_RATE_SOURCE = 'live';
     localStorage.setItem('vyreFxRates', JSON.stringify({ savedAt: Date.now(), rates: VYRE_RATES }));
