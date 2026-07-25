@@ -25,6 +25,31 @@
 <meta content="VYRE creates realistic food, cafe, product, and lifestyle content for Instagram, Google Business, email, and reels without planning a shoot day." name="description"/>
 <meta content="realistic content creation, restaurant content, cafe content, food visuals, product content, lifestyle content, Instagram content, Google Business updates, email visuals, reel scripts, content without photoshoot, VYRE Creative" name="keywords"/>
 <link href="https://vyrecreative.vercel.app/" rel="canonical"/>
+<!-- SEO: hreflang alternates for all supported locales -->
+<link href="https://vyrecreative.vercel.app/?lang=en-US" hreflang="en-US" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=en-GB" hreflang="en-GB" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=de-DE" hreflang="de-DE" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=de-AT" hreflang="de-AT" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=de-CH" hreflang="de-CH" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=es-ES" hreflang="es-ES" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=es-MX" hreflang="es-MX" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=ja-JP" hreflang="ja-JP" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=ko-KR" hreflang="ko-KR" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/?lang=sv-SE" hreflang="sv-SE" rel="alternate"/>
+<link href="https://vyrecreative.vercel.app/" hreflang="x-default" rel="alternate"/>
+<!-- SEO: local/geo targeting -->
+<meta content="US-OH" name="geo.region"/>
+<meta content="Northeast Ohio" name="geo.placename"/>
+<meta content="Ohio, United States" name="ICBM"/>
+<meta content="en_GB" property="og:locale:alternate"/>
+<meta content="de_DE" property="og:locale:alternate"/>
+<meta content="de_AT" property="og:locale:alternate"/>
+<meta content="de_CH" property="og:locale:alternate"/>
+<meta content="es_ES" property="og:locale:alternate"/>
+<meta content="es_MX" property="og:locale:alternate"/>
+<meta content="ja_JP" property="og:locale:alternate"/>
+<meta content="ko_KR" property="og:locale:alternate"/>
+<meta content="sv_SE" property="og:locale:alternate"/>
 <!-- Open Graph -->
 <meta content="VYRE Creative | Realistic Content Creation for Restaurants, Cafés &amp; Brands" property="og:title"/>
 <meta content="VYRE creates realistic food, cafe, product, and lifestyle content for Instagram, Google Business, email, and reels without planning a shoot day." property="og:description"/>
@@ -52,6 +77,10 @@
       "description": "VYRE creates realistic content visuals, captions, Google Business updates, email visuals, and reel concepts for restaurants, cafés, products, and brands.",
       "knowsAbout": [
         "realistic content creation",
+        "restaurant content marketing Ohio",
+        "cafe content creation Northeast Ohio",
+        "local business content Ohio",
+        "Google Business Profile photos",
         "restaurant content",
         "cafe content",
         "food visuals",
@@ -98,14 +127,24 @@
       },
       "areaServed": [
         {
-          "@type": "Country",
-          "name": "United States"
+          "@type": "State",
+          "name": "Ohio",
+          "containedInPlace": { "@type": "Country", "name": "United States" }
         },
-        {
-          "@type": "Place",
-          "name": "Online"
-        }
+        { "@type": "City", "name": "Cleveland, Ohio" },
+        { "@type": "City", "name": "Akron, Ohio" },
+        { "@type": "City", "name": "Canton, Ohio" },
+        { "@type": "City", "name": "Toledo, Ohio" },
+        { "@type": "City", "name": "Sandusky, Ohio" },
+        { "@type": "City", "name": "Tiffin, Ohio" },
+        { "@type": "City", "name": "Findlay, Ohio" },
+        { "@type": "City", "name": "Fremont, Ohio" },
+        { "@type": "City", "name": "Bowling Green, Ohio" },
+        { "@type": "City", "name": "Youngstown, Ohio" },
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Place", "name": "Remote and online worldwide" }
       ],
+      "availableLanguage": ["en","de","es","ja","ko","sv"],
       "audience": {
         "@type": "BusinessAudience",
         "audienceType": "Restaurants, cafés, food brands, product brands, and lifestyle businesses"
@@ -905,7 +944,7 @@ footer{margin-top:0;background:#050505;border-top:1px solid rgba(243,237,225,.1)
 <span data-i18n="direction.cardRef">01 / REF</span>
 <picture>
 <source srcset="assets/hero-desktop.jpg?v=20260609b" type="image/jpeg"/>
-<img alt="" loading="lazy" src="assets/hero-desktop.jpg?v=20260609b"/>
+<img alt="Reference photo input for the VYRE direction process, a raw cafe table scene used as the visual starting point." loading="lazy" src="assets/hero-desktop.jpg?v=20260609b"/>
 </picture>
 <strong data-i18n-html="direction.cardRefTitle">RAW<br/>CAFE<br/>REF</strong>
 </div>
@@ -920,13 +959,13 @@ footer{margin-top:0;background:#050505;border-top:1px solid rgba(243,237,225,.1)
 </div>
 <div class="shot-card shot-phone">
 <div class="phone-top"></div>
-<img alt="" loading="lazy" src="assets/direction-phone.jpg?v=20260609b"/>
+<img alt="Finished VYRE content visual shown on a phone, realistic cafe imagery produced without a shoot day." loading="lazy" src="assets/direction-phone.jpg?v=20260609b"/>
 <div class="phone-caption" data-i18n="direction.phoneCaption">raw realism / no shoot day</div>
 </div>
 <div class="shot-card shot-output">
 <span data-i18n="direction.cardReady">03 / READY</span>
 <strong data-i18n-html="direction.outputStack">IG<br/>GOOGLE<br/>EMAIL<br/>REELS</strong>
-<img alt="" loading="lazy" src="assets/assets-stack.jpg?v=20260609b"/>
+<img alt="Stack of delivered VYRE content assets ready for Instagram, Google Business, email, and reels." loading="lazy" src="assets/assets-stack.jpg?v=20260609b"/>
 </div>
 </div>
 </div>
@@ -1297,6 +1336,8 @@ const VYRE_PRICE_LOCALES = {
   'ko-KR': { currency: 'KRW', locale: 'ko-KR' },
   'ja-JP': { currency: 'JPY', locale: 'ja-JP' }
 };
+const VYRE_SITE_ORIGIN = 'https://vyrecreative.vercel.app/';
+const VYRE_DEFAULT_LOCALE = 'en-US';
 const VYRE_FALLBACK_RATES = { GBP: 0.7483, EUR: 0.8657, CHF: 0.7964, SEK: 9.426, KRW: 1532.58, JPY: 160.16, MXN: 17.435 };
 let VYRE_RATES = { ...VYRE_FALLBACK_RATES };
 let VYRE_RATE_SOURCE = 'fallback';
@@ -1402,10 +1443,44 @@ function applyLanguage(locale) {
   });
   document.querySelectorAll('#languageSelect,#mobileLanguageSelect').forEach(sel => sel.value = locale);
   localStorage.setItem('vyreLocale', locale);
+  syncLocaleUrl(locale);
   updateConvertedPrices();
 }
+
+// Keeps the URL, canonical tag, and og:url in step with the active locale so each
+// language has a distinct, shareable, crawlable address instead of living only in
+// localStorage. Search engines can then actually see the 9 non-English versions.
+function syncLocaleUrl(locale) {
+  const canonicalHref = VYRE_SITE_ORIGIN + (locale === VYRE_DEFAULT_LOCALE ? '' : '?lang=' + locale);
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute('href', canonicalHref);
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', canonicalHref);
+  if (!window.history || !window.history.replaceState) return;
+  const url = new URL(window.location.href);
+  if (locale === VYRE_DEFAULT_LOCALE) url.searchParams.delete('lang');
+  else url.searchParams.set('lang', locale);
+  window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+}
+// Resolution order: explicit ?lang= in the URL (so shared and crawled links always
+// win), then the visitor's last choice, then their browser language, then English.
+function resolveInitialLocale() {
+  const supported = Object.keys(VYRE_TRANSLATIONS);
+  const requested = new URLSearchParams(window.location.search).get('lang');
+  if (requested && supported.includes(requested)) return requested;
+  const stored = localStorage.getItem('vyreLocale');
+  if (stored && supported.includes(stored)) return stored;
+  for (const pref of (navigator.languages || [navigator.language || ''])) {
+    if (!pref) continue;
+    if (supported.includes(pref)) return pref;
+    const match = supported.find(loc => loc.split('-')[0] === pref.split('-')[0]);
+    if (match) return match;
+  }
+  return VYRE_DEFAULT_LOCALE;
+}
+
 function initLanguageControls() {
-  const stored = localStorage.getItem('vyreLocale') || 'en-US';
+  const stored = resolveInitialLocale();
   document.querySelectorAll('#languageSelect,#mobileLanguageSelect').forEach(sel => {
     sel.addEventListener('change', e => applyLanguage(e.target.value));
   });
