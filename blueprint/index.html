@@ -114,27 +114,22 @@
 
     <div class="grab">
       <h2>Send me the sample</h2>
-      <p>Two chapters and the starter files. You will make something work today, or find out quickly that this is not for you.</p>
+      <p>Two chapters and the starter files. Ask and I will send them straight over. You will make something work today, or find out quickly that this is not for you.</p>
 
       <!-- ==========================================================================
-           HOW TO WIRE THIS UP  (read this, it matters)
+           CTA goes to your Instagram DMs. You reply by hand with the sample PDF
+           and the starter zip. No email provider, no setup, works right now.
 
-           Your vercel.json sets  Content-Security-Policy: form-action 'self'
-           That BLOCKS a normal <form> from posting to ConvertKit / Beehiiv /
-           Mailchimp. It fails silently, so you would think it worked.
+           WHY NOT A FORM: your vercel.json sets  form-action 'self'  in the CSP,
+           which blocks a <form> posting to ConvertKit or Beehiiv. It fails
+           silently, so you would collect nothing and see no error.
 
-           EASIEST (works right now, no config change):
-             Create a hosted signup page with your provider, then paste that URL
-             into the href below. The visitor clicks out, signs up there, and
-             your provider emails them the sample automatically.
-
-           ALTERNATIVE (inline form, keeps them on your page):
-             Add the provider's domain to form-action in vercel.json, e.g.
-               form-action 'self' https://app.convertkit.com;
-             then swap this link back for a <form action="..." method="post">.
+           LATER: when you want it automated, either point this href at a hosted
+           signup page from your provider, or add them to form-action in
+           vercel.json and switch back to an inline form.
            ========================================================================== -->
-      <a class="cta" href="#REPLACE_WITH_YOUR_SIGNUP_URL" rel="noopener">Send it over</a>
-      <p class="fine">One email when the full book is finished. Nothing else, and you can leave whenever you like.</p>
+      <a class="cta" href="https://ig.me/m/vyrecreative" target="_blank" rel="noopener">Message me on Instagram</a>
+      <p class="fine">I send these by hand, so it is a real person on the other end. Ask me anything about it while you are there.</p>
     </div>
   </div>
 </header>
@@ -189,7 +184,7 @@
     <div class="label">One more thing</div>
     <h2 class="sec disp" id="h-mistakes">The mistakes are<br>still in it</h2>
     <p>I got a great deal of this wrong before I got it right, and the wrong turns are more useful to you than a clean version would be. There is a chapter built entirely around an automation that told me it had finished the job perfectly while having done a good part of it in completely the wrong place.</p>
-    <p style="margin-top:26px"><a href="#main" style="color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px">Send me the sample</a></p>
+    <p style="margin-top:26px"><a href="https://ig.me/m/vyrecreative" target="_blank" rel="noopener" style="color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px">Message me for the sample</a></p>
   </div>
 </section>
 </main>
