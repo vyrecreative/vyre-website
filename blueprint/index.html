@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+<!-- Not indexed on purpose. This page is an AI automation offer and the rest of
+     vyrecreative.vercel.app is optimised for Ohio restaurant and cafe content.
+     Letting Google associate the two dilutes the main site and puts an AI page
+     in front of prospects who have already objected to AI. Direct links still
+     work perfectly. Delete this one line when you want it indexed. -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta name="author" content="VYRE Creative">
+<meta name="theme-color" content="#0D0D0D">
+<title>Automate the Cruise | A working AI assistant in fifteen minutes</title>
+<meta name="description" content="A free sample and the starter files. Make a computer read a real set of business records and tell you something true about them, in about fifteen minutes. No account, no code, nothing of yours connected.">
+<link rel="canonical" href="https://vyrecreative.vercel.app/blueprint/">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/vyre-favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/vyre-favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="/vyre-logo-180.png" sizes="180x180">
+
+<meta property="og:site_name" content="VYRE Creative">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vyrecreative.vercel.app/blueprint/">
+<meta property="og:title" content="Automate the Cruise">
+<meta property="og:description" content="A working AI assistant in fifteen minutes, with the files to do it. Free sample.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Automate the Cruise">
+<meta name="twitter:description" content="A working AI assistant in fifteen minutes, with the files to do it. Free sample.">
+<style>
+  :root{
+    --black:#0D0D0D; --cream:#F0E7D8; --paper:#FAF7F2;
+    --ink:#16161A; --accent:#C0402B; --muted:#7C766D; --rule:#E2DACD;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);
+       font-family:Charter,"Bitstream Charter",Georgia,"Times New Roman",serif;
+       line-height:1.65;-webkit-font-smoothing:antialiased}
+  .disp{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;
+        text-transform:uppercase;letter-spacing:-.005em;line-height:.94}
+  .ui{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+  .wrap{max-width:730px;margin:0 auto;padding:0 26px}
+
+  /* HERO */
+  header{background:var(--black);color:var(--cream);padding:44px 0 70px}
+  .wm{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;font-size:23px;
+      letter-spacing:.13em;color:var(--cream)}
+  .wmr{width:48px;height:5px;background:var(--accent);margin-top:11px}
+  .kick{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.26em;
+        text-transform:uppercase;margin:62px 0 20px}
+  h1{font-size:clamp(40px,8.4vw,70px);color:var(--cream)}
+  .sub{margin-top:26px;font-size:clamp(17px,2.4vw,21px);font-style:italic;color:#CFC5B4;max-width:29em}
+
+  /* FORM */
+  .grab{background:#151515;border:1px solid #2C2823;border-left:5px solid var(--accent);
+        padding:26px 24px;margin-top:40px;border-radius:2px}
+  .grab h2{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+           margin-bottom:12px;font-weight:700}
+  .grab p{color:#C9BFB0;font-size:15.5px;margin-bottom:18px}
+  .cta{display:inline-block;padding:16px 30px;background:var(--accent);color:#fff;font-size:16px;
+       font-weight:700;letter-spacing:.03em;text-decoration:none;border-radius:2px;
+       font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+  .cta:hover{background:#A9351F}
+  .cta:focus{outline:3px solid #E8846F;outline-offset:2px}
+  .fine{margin-top:13px;font-size:13px;color:#847C71}
+
+  /* SECTIONS */
+  section{padding:62px 0;border-bottom:1px solid var(--rule)}
+  h2.sec{font-size:clamp(26px,4.6vw,36px);margin-bottom:22px}
+  .lede{font-size:18px;margin-bottom:20px}
+  p+p{margin-top:16px}
+  .label{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.22em;
+         text-transform:uppercase;margin-bottom:14px}
+
+  .steps{list-style:none;counter-reset:s;margin-top:26px}
+  .steps li{counter-increment:s;position:relative;padding:16px 0 16px 52px;border-top:1px solid var(--rule)}
+  .steps li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:15px;
+        color:var(--accent);font-weight:800;font-size:19px;
+        font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+  .steps b{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px}
+
+  .pull{border-top:4px solid var(--accent);border-bottom:1px solid var(--rule);padding:20px 0;
+        margin:30px 0;font-size:clamp(20px,3.3vw,27px)}
+  .who{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
+  .who div{border:1px solid var(--rule);background:#fff;padding:20px 22px}
+  .who h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;letter-spacing:.13em;
+          text-transform:uppercase;color:var(--accent);margin-bottom:9px}
+  @media(min-width:680px){.who{grid-template-columns:1fr 1fr}}
+
+  .skip{position:absolute;left:-9999px;background:var(--accent);color:#fff;padding:10px 16px;z-index:9}
+  .skip:focus{left:12px;top:12px}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  footer{background:var(--black);color:#8E877D;padding:44px 0;font-size:13.5px}
+  footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid #3A342D}
+  .ftop{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#what">Skip to content</a>
+<header>
+  <div class="wrap">
+    <div class="wm">VYRE</div><div class="wmr"></div>
+
+    <div class="kick">Free sample and starter files</div>
+    <h1 class="disp">Automate<br>the Cruise</h1>
+    <p class="sub">A working AI assistant in fifteen minutes, with the files to do it.</p>
+
+    <div class="grab">
+      <h2>Send me the sample</h2>
+      <p>Two chapters and the starter files. You will make something work today, or find out quickly that this is not for you.</p>
+
+      <!-- ==========================================================================
+           HOW TO WIRE THIS UP  (read this, it matters)
+
+           Your vercel.json sets  Content-Security-Policy: form-action 'self'
+           That BLOCKS a normal <form> from posting to ConvertKit / Beehiiv /
+           Mailchimp. It fails silently, so you would think it worked.
+
+           EASIEST (works right now, no config change):
+             Create a hosted signup page with your provider, then paste that URL
+             into the href below. The visitor clicks out, signs up there, and
+             your provider emails them the sample automatically.
+
+           ALTERNATIVE (inline form, keeps them on your page):
+             Add the provider's domain to form-action in vercel.json, e.g.
+               form-action 'self' https://app.convertkit.com;
+             then swap this link back for a <form action="..." method="post">.
+           ========================================================================== -->
+      <a class="cta" href="#REPLACE_WITH_YOUR_SIGNUP_URL" rel="noopener">Send it over</a>
+      <p class="fine">One email when the full book is finished. Nothing else, and you can leave whenever you like.</p>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section id="what" aria-labelledby="h-what">
+  <div class="wrap">
+    <div class="label">What actually happens</div>
+    <h2 class="sec disp" id="h-what">You download four files<br>and ask one question</h2>
+    <p class="lede">The files belong to a cafe that does not exist. Eight weeks of takings, its bookings, its unanswered messages, its unpaid bills. All invented, so you can pull it apart without worrying about anybody's privacy, including your own.</p>
+    <ol class="steps">
+      <li><b>Download the folder.</b> Four ordinary spreadsheet files, the kind almost every business already has somewhere.</li>
+      <li><b>Point your assistant at it.</b> No account to create. Nothing of yours connected to anything.</li>
+      <li><b>Ask it a question in plain English.</b> Which day of the week actually makes the money, and how much more than the quietest day.</li>
+      <li><b>Read the answer.</b> You did not open a file, sort a column, or write a formula. You did not know, and now you do.</li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="h-honest">
+  <div class="wrap">
+    <div class="label">Being straight with you</div>
+    <h2 class="sec disp" id="h-honest">That first one still<br>needs you sitting there</h2>
+    <p>It is a fast assistant, not an automation. Close the laptop and nothing happens tomorrow.</p>
+    <p>Nobody starts flight training with ground school. They book a trial lesson, go up, and hold the controls for a minute. You do not learn much in that minute. What happens is that the whole thing stops being an idea.</p>
+    <div class="pull disp">The version that works while you are asleep is what the book builds.</div>
+    <p>I would rather tell you that now than have you find out on page ninety.</p>
+  </div>
+</section>
+
+<section aria-labelledby="h-who">
+  <div class="wrap">
+    <div class="label">Honestly</div>
+    <h2 class="sec disp" id="h-who">Who this is not for</h2>
+    <div class="who">
+      <div>
+        <h3>Not for you if</h3>
+        <p>You already build this sort of thing. You will find it slow, and you would be right to.</p>
+      </div>
+      <div>
+        <h3>Probably for you if</h3>
+        <p>You run something, you have heard about all this for two years, and you have never once had software do a job while you were asleep.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px">There is a lot written about this. Nearly all the good, detailed, generous material is written by people who build software, for other people who build software. The rest is a hook, a promise, and a link to a course.</p>
+    <p>Nobody stands in the middle. That is the entire reason this exists.</p>
+  </div>
+</section>
+
+<section style="border-bottom:0" aria-labelledby="h-mistakes">
+  <div class="wrap">
+    <div class="label">One more thing</div>
+    <h2 class="sec disp" id="h-mistakes">The mistakes are<br>still in it</h2>
+    <p>I got a great deal of this wrong before I got it right, and the wrong turns are more useful to you than a clean version would be. There is a chapter built entirely around an automation that told me it had finished the job perfectly while having done a good part of it in completely the wrong place.</p>
+    <p style="margin-top:26px"><a href="#main" style="color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px">Send me the sample</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap ftop">
+    <div>
+      <div class="wm" style="font-size:17px">VYRE</div>
+      <div class="wmr" style="width:34px;height:4px;margin-top:8px"></div>
+    </div>
+    <div style="text-align:right">
+      <div>VYRE Creative</div>
+      <div style="margin-top:5px"><a href="https://www.instagram.com/vyrecreative/">@vyrecreative</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
